@@ -1,6 +1,5 @@
 # yolo-custom-export
 Code to modify the ultralytics yolo architecture while exporting to TFLite
-+++
 ## Background
 I have extensively utilized [ultralytics](https://github.com/ultralytics/ultralytics) for some projects and wanted to note some parts that were useful.
 Originally, I had a `.tflite` YOLO model that takes an `(1x640x640x3)` tensor as an input. However, the images that were used to test the model had a shape of `(1x1280x1280x3)` which required a `resize` step. Additionally, the model required a normalization step which is to divide the input tensor by 255 and convert it to `float`.
