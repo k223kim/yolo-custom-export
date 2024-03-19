@@ -64,7 +64,7 @@ for each_module in my_sequential:
 		- Current layer (`Module`) index
 - Some examples
 Consider the following architecture of YOLOv8 provided by GitHub user RangeKing.
-![yolo_architecture](yolo_architecture.png)
+![yolo_architecture](images/yolo_architecture.png)
 Notice that the last block denoted by `Detect` is the 22nd module of the entire architecture that takes input from the 15th, 18th, and 21st `C2f` block. This can be confirmed by the following code block.
 ```python
 yolo_sequential = yolo_model.model.model # access to the sequential container
