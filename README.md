@@ -168,13 +168,13 @@ Similarly, the module indices in the `save` attribute has been incremented by `1
 yolo_model.export(format='tflite')
 ```
 When performing a default export, the model looks something like this:
-![yolo_tflite1.png](yolo_tflite1.png)
+![yolo_tflite1.png](images/yolo_tflite1.png)
 #### Modified Export
 ```python
 yolo_model_new.export(format='tflite', imgsz=(1280, 1280))
 ```
 With the new module inserted and assigning a specific input tensor shape while exporting, the YOLO architecture is modified as shown below.
-![yolo_tflite2](yolo_tflite2.png)
+![yolo_tflite2](images/yolo_tflite2.png)
 
 Notice how the input shape is now converted to `1x1280x1280x3` and there are two "blocks" that are added that normalizes and reshapes the tensor to `1x640x640x3`. The rest of the model architecture is identical.
 ## Inference TFLite Model
@@ -229,7 +229,7 @@ output_data = interpreter.get_tensor(output_details[0]['index'])
 - Similarly, `get_tensor()` will copy the value of the output tensor. [`tensor()`](https://www.tensorflow.org/api_docs/python/tf/lite/Interpreter#tensor) can be used to get the pointer to the output tensor.
 #### Comparing two `tflite` models
 Here is the example image that I am going to use which is an image of my dog and cat.
-![my_dog_cat](my_dog_cat.jpg)
+![my_dog_cat](assets/my_dog_cat.jpg)
 As mentioned earlier, this image has a shape of `1280x1280`. Below is the complete code to run inference on two different `tflite` models with the same input image.
 ```python
 import tensorflow as tf
